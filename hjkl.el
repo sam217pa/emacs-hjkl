@@ -27,9 +27,9 @@
 ;; keybindings, _ie_ keybindings that trigger an action depending on characters
 ;; that follow or precede the point (cursor). The idea is to move swiftly by
 ;; semantically relevant units in a language agnostic way. You use `hjkl-up`,
-;; `hjkl-down` and other keybindings to the previous or next semantic unit (a
-;; sexp, a paragraph for example) when point is after or behind a regular
-;; expression.
+;; `hjkl-down` and other keybindings to jump to the previous or next semantic
+;; unit (a sexp, a paragraph for example) when point is after or behind a
+;; regular expression.
 ;;
 ;; In a way, `hjkl` was born as the result of my frustration not being able to
 ;; use [lispy](https://github.com/abo-abo/lispy) keybindings in all major modes.

@@ -8,9 +8,9 @@
 keybindings, _ie_ keybindings that trigger an action depending on characters
 that follow or precede the point (cursor). The idea is to move swiftly by
 semantically relevant units in a language agnostic way. You use `hjkl-up`,
-`hjkl-down` and other keybindings to the previous or next semantic unit (a
-sexp, a paragraph for example) when point is after or behind a regular
-expression.
+`hjkl-down` and other keybindings to jump to the previous or next semantic
+unit (a sexp, a paragraph for example) when point is after or behind a
+regular expression.
 
 In a way, `hjkl` was born as the result of my frustration not being able to
 use [lispy](https://github.com/abo-abo/lispy) keybindings in all major modes.
@@ -65,7 +65,7 @@ It results into the evaluation of the following snippet:
 - `:down`: it makes sense to bind function that does the opposite of those
    bound to `hjkl-up`.
 
-- `:left` and `:right`: useful to goes out of a semantic unit. It can be used
+- `:left` or `:right`: useful to goes out of a semantic unit. It can be used
    to jump to the enclosing parent delimiter when the cursor is before a
    closing delimiter, or to hide the body of the current outline heading.
 
@@ -75,7 +75,9 @@ It results into the evaluation of the following snippet:
 - `:eval`: used to evaluate SEXP or expression in a REPL. It is useful in
    emacs-lisp, ESS-modes, python and languages that interact with a REPL.
 
-- `:mark`: used to mark expressions, paragraph and stuff like that.
+- `:mark`: used to mark expressions, paragraphs and stuff like that.
+
+- `:other`: jump to the corresponding delimiter.
 
 
 ### Function Documentation
