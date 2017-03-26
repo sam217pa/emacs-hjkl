@@ -33,14 +33,26 @@
 ;;
 ;; In a way, `hjkl` was born as the result of my frustration not being able to
 ;; use [lispy](https://github.com/abo-abo/lispy) keybindings in all major modes.
+;;
+;; ![hjkl](img/hjkl.gif)
 
 ;;; Installation:
 ;;
 ;; This module is currently in beta version and not (yet) available on MELPA.
 ;;
-;; To install
+;; To install use
 ;;
-;; TODO
+;;	$ git clone https://github.com/sam217pa/emacs-hjkl
+;;
+;; and add the following `use-package` declaration into your `.emacs` file:
+;;
+;; ```elisp
+;; (use-package hjkl
+;;   :load-path "path/to/emacs-hjkl"
+;;   :config
+;;   (setq hjkl-up (kbd "K")) ; if k does not suits you.
+;;   (hjkl-define-keys ...))
+;; ```
 
 ;;; Usage:
 ;;
@@ -69,32 +81,53 @@
 ;;           (t (self-insert-command 1)))))
 ;; ```
 
+;; (More information on context-dependent keybindings can be found
+;; [here](http://endlessparentheses.com/define-context-aware-keys-in-emacs.html).)
+
 ;;; hjkl Directions
 ;;
 ;; `hjkl` provides several keybindings by default, corresponding to
 ;; `hjkl-directions':
 ;;
 
-;; - `:up`: useful to goes up a semantic unit. It can be used to jump to the
-;;    beginning of the previous paragraph, SEXP or outline-heading.
+;; - `:up`: bound to `k` by default, useful to goes up a semantic unit. It can
+;;    be used to jump to the beginning of the previous paragraph, SEXP or
+;;    outline-heading.
 
-;; - `:down`: it makes sense to bind function that does the opposite of those
-;;    bound to `hjkl-up`.
+;; - `:down`: bound to `j` by default, it makes sense to bind function that does
+;;    the opposite of those bound to `hjkl-up`.
 
-;; - `:left` or `:right`: useful to goes out of a semantic unit. It can be used
-;;    to jump to the enclosing parent delimiter when the cursor is before a
-;;    closing delimiter, or to hide the body of the current outline heading.
+;; - `:left` or `:right`: bound to `h` and `l` by default, useful to goes out of
+;;    a semantic unit. It can be used to jump to the enclosing parent delimiter
+;;    when the cursor is before a closing delimiter, or to hide the body of the
+;;    current outline heading.
 
-;; - `:jump`: useful to jump to a specific location using
-;;    [avy](https://github.com/abo-abo/avy) for example.
+;; - `:jump`: bound to `a` by default, useful to jump to a specific location
+;;    using [`a`vy](https://github.com/abo-abo/avy) for example.
 
-;; - `:eval`: used to evaluate SEXP or expression in a REPL. It is useful in
-;;    emacs-lisp, ESS-modes, python and languages that interact with a REPL.
+;; - `:eval`: bound to `e` by default, used to evaluate SEXP or expression in a
+;;    REPL. It is useful in emacs-lisp, ESS-modes, python and languages that
+;;    interact with a REPL.
 
-;; - `:mark`: used to mark expressions, paragraphs and stuff like that.
+;; - `:mark`: bound to `m` by default, used to mark expressions, paragraphs and
+;; - stuff like that.
 
-;; - `:other`: jump to the corresponding delimiter.
+;; - `:other`: bound to `o` by default, jump to the corresponding delimiter.
 
+;;; Example config
+;;
+
+;;; Contributions
+;;
+;; I would really appreciate contributions as this is my first package. I am
+;; sure it does some really wrong things, and that it can be improved a lot.
+;; I'll be glad to have feedbacks on it !
+
+;;; Disclaimer
+;;
+;; hjkl still feels a lot like a hack to me, but it does kinda work as I
+;; expected, so I felt I would put it in the open. Maybe it will break things in
+;; your config, but as the GPL says, it is distributed without any garantee … ;)
 
 ;;; Code:
 ;;
