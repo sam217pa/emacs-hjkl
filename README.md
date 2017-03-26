@@ -67,6 +67,23 @@ It results into the evaluation of the following snippet:
 (More information on context-dependent keybindings can be found
 [here](http://endlessparentheses.com/define-context-aware-keys-in-emacs.html).)
 
+`hjkl` provides two way to define keybindings. The preferred way is to use
+
+	(setq hjkl-bindings HJKL-PLIST)
+
+and call `M-x hjkl-update-keys` or evaluate `hjkl-update-keys` in your
+`.emacs` ; the other way is to directly pass HJKL-PLIST to
+`(hjkl-define-keys)`. This has the drawback of having to define all keys in
+one place, whereas you can `append` code to `hjkl-bindings` with
+
+```elisp
+(add-to-list
+ 'hjkl-bindings
+ '(:keymap ess-mode-map
+   :bind (:eval (")" #'ess-eval-function-or-paragraph))))
+```
+
+
 ### hjkl Directions
 
 
